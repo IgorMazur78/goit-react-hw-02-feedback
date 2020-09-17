@@ -1,0 +1,18 @@
+.statistic{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.statisticTitle{
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: 20px;
+
+}
+.itemStatistic{
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: 14px;
+}

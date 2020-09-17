@@ -1,0 +1,25 @@
+.feedback{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.titleFeedback{
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-size: 20px;
+}
+.feedbackList{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style: none;
+}
+.buttonFeedback{
+    margin-left: 10px;
+}
