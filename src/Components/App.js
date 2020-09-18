@@ -67,7 +67,15 @@ export default class App extends Component {
           onCounterBad={this.CounterBad}
         />
         {this.countTotalFeedback() === 0 ? (
+          <div>
           <Title />
+          <Statistic
+            statGood={good}
+            statNeutral={neutral}
+            statBad={bad}
+            statTotal={this.countTotalFeedback()}
+            statPositive={this.countPositiveFeedbackPercentage()}/>
+            </div>
         ) : (
           <Statistic
             statGood={good}
