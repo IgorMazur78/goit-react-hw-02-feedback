@@ -11,14 +11,7 @@ export default class App extends Component {
     bad: 0,
   };
 
-  // Counter = (type) => {
-  //   this.setState((prevState) => {
-  //     return {
-  //     [type]: prevState[type] + 1,
-  //     };
-  //   });
-  // };
-
+  
   CounterGood = () => {
     this.setState((prevState) => {
       return {
@@ -44,7 +37,8 @@ export default class App extends Component {
     });
   };
   countTotalFeedback = () => {
-    return this.state.good + this.state.bad + this.state.neutral
+    const { good, neutral, bad } = this.state;
+    return good + bad + neutral
    
   };
 
@@ -52,8 +46,9 @@ export default class App extends Component {
   
 
   countPositiveFeedbackPercentage = () => {
-    if (this.state.bad || this.state.neutral || this.state.good > 0)
-      return (this.state.good * 100) / this.countTotalFeedback();
+    const { good, neutral, bad } = this.state;
+    if (bad || neutral || good > 0)
+      return (good * 100) / this.countTotalFeedback();
   };
 
   render() {
@@ -66,7 +61,27 @@ export default class App extends Component {
           onCounterNeutral={this.CounterNeutral}
           onCounterBad={this.CounterBad}
         />
-        {this.countTotalFeedback() === 0 ? (
+{this.countTotalFeedback() === 0 && (
+          <div>
+          <Title />
+          <Statistic
+            statGood={good}
+            statNeutral={neutral}
+            statBad={bad}
+            statTotal={this.countTotalFeedback()}
+            statPositive={this.countPositiveFeedbackPercentage()}/>
+            </div>
+        )}
+        {this.countTotalFeedback() !== 0 &&  
+        <Statistic
+        statGood={good}
+        statNeutral={neutral}
+        statBad={bad}
+        statTotal={this.countTotalFeedback()}
+        statPositive={this.countPositiveFeedbackPercentage()}
+      />}
+
+        {/* {this.countTotalFeedback() === 0 ? (
           <div>
           <Title />
           <Statistic
@@ -84,7 +99,7 @@ export default class App extends Component {
             statTotal={this.countTotalFeedback()}
             statPositive={this.countPositiveFeedbackPercentage()}
           />
-        )}
+        )} */}
       </div>
     );
   }
